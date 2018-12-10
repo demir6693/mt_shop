@@ -1,3 +1,74 @@
-<p>
-  racuni works!
-</p>
+<div class="container">
+    
+  <div class="jumbotron">
+        <h1 class="display-3">Provera stanja</h1>
+        <hr>
+        <div class="row">
+            
+            <div class="col-sm">
+              <h3>Dnevni</h3>
+              
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getDnevniIznos }} din</h5></div>
+              </div>
+
+              <br>
+              
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getDnevniZarada }} din</h5></div>
+              </div>
+
+            </div>
+
+            <div class="col-sm">
+              <h3>Mesecni</h3>
+
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getMesecniIznos }} din</h5></div>
+              </div>
+
+              <br>
+              
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getMesecniZarada }} din</h5></div>
+              </div>
+
+            </div>
+
+            <div class="col-sm">
+              <h3>Godisnji</h3>
+
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getGodisnjiIznos }} din</h5></div>
+              </div>
+
+              <br>
+              
+              <div class="card border-info mb-3" style="max-width: 20rem;">
+                <div class="card-header"><h5>{{ getGodisnjiZarada }} din</h5></div>
+              </div>
+
+            </div>
+            
+        </div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Id</th>
+        <th scope="col">Prodavac</th>
+        <th scope="col">Artikli</th>
+        <th scope="col">Iznos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-light" *ngFor = "let racun of getRacuniData">
+        <td>{{ racun.id_racuna }}</td>
+        <td>{{ racun.prodavac }}</td>
+        <td>{{ racun.artikli }}</td>
+        <td>{{ racun.iznos }} din</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
