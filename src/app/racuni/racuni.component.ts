@@ -30,8 +30,9 @@ export class RacuniComponent implements OnInit {
         {
           this.getDnevniIznos += parseInt(this.getRacuniData[i].iznos);
           this.getDnevniZarada += parseInt(this.getRacuniData[i].iznos_nabavna);
-          this.getDnevniZarada = this.getDnevniIznos - this.getDnevniZarada;
         } 
+
+        this.getDnevniZarada = this.getDnevniIznos - this.getDnevniZarada;
       }
     );
 

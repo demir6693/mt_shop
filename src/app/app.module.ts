@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RacuniComponent } from './racuni/racuni.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BonusiComponent } from './bonusi/bonusi.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RacuniComponent
+    RacuniComponent,
+    BonusiComponent
   ],
   imports: [
     BrowserModule,
