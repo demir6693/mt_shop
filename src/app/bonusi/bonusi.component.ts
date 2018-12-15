@@ -9,14 +9,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class BonusiComponent implements OnInit {
 
   getEmpData: any = [];
-
+  getBonusData: any = [];
+  token: string = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsInBhc3dvcmQiOiJ1c2VyMTIzIn0sImlhdCI6MTU0NDcyNTM3Mn0.1b1Lq3sec6ZJ9wLSJPMwcDChN5XNMr9OHePhWEmuwz8";
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
-    const header = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsInBhc3dvcmQiOiJ1c2VyMTIzIn0sImlhdCI6MTU0NDcyNTM3Mn0.1b1Lq3sec6ZJ9wLSJPMwcDChN5XNMr9OHePhWEmuwz8');
+    const header = new HttpHeaders().set('Authorization', this.token);
     
-    this.http.get('http://localhost:3000/racuni/getkorisnici', {headers: header})
+    this.http.get('http://5.79.70.193:3000/racuni/getkorisnici', {headers: header})
     .subscribe(
       (data) => {
         this.getEmpData = data;
@@ -25,11 +27,23 @@ export class BonusiComponent implements OnInit {
   }
 
 
-  updateBonus()
+  updateBonus(id, bonus_value)
   {
-    let inputBonus: string;
-    console.log('rrr');
-    console.log(inputBonus);
-  }
+    const header = new HttpHeaders().set('Content-Type', 'application/json')
+    .set('Authorization', this.token);
+
+    this.http.put('http://5.79.70.193:3000/racuni/postbonus/' + id,
+    JSON.stringify({
+      bonus: bonus_value
+    }),
+      { 
+      headers: header
+      }
+    )
+    .subscribe(data => {
+      this.getBonusData = data;
+      location.reload();
+    });
+  } 
 
 }

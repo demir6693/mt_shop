@@ -20,8 +20,8 @@
               <td>{{ emp.ime }}</td>
               <td>{{ emp.prezime }}</td>
               <td>{{ emp.korisnicko_ime }}</td>
-              <td><input type="text" value="{{emp.bonus}}" class="form-control is-valid" id="inputValid" wfd-id="491" style="text-align: center;"></td>
-              <td><button class="btn btn-primary" (click) = "updateBonus(emp.id_korisnika)">Unesi</button></td>
+              <td><input type="text" value="{{emp.bonus}}" #ref class="form-control is-valid" id="inputValid" wfd-id="491" style="text-align: center;"></td>
+              <td><button class="btn btn-primary" (click) = "updateBonus(emp.id_korisnika ,ref.value)">Unesi</button></td>
             </tr>
           </tbody>
         </table>
