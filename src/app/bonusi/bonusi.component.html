@@ -1,29 +1,24 @@
 <div class="container">
     
-  <div class="jumbotron">
-        <h1 class="display-3">Korisnici</h1>
-        <hr>
-        <table class="table table-hover">
-          <thead>
-            <tr class="table-primary">
-              <th scope="col">Id</th>
-              <th scope="col">Ime</th>
-              <th scope="col">Prezime</th>
-              <th scope="col">Korisnicko ime</th>
-              <th scope="col">Bonus</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="table-light" *ngFor = "let emp of getEmpData">
-              <td>{{ emp.id_korisnika }}</td>
-              <td>{{ emp.ime }}</td>
-              <td>{{ emp.prezime }}</td>
-              <td>{{ emp.korisnicko_ime }}</td>
-              <td><input type="text" value="{{emp.bonus}}" #ref class="form-control is-valid" id="inputValid" wfd-id="491" style="text-align: center;"></td>
-              <td><button class="btn btn-primary" (click) = "updateBonus(emp.id_korisnika ,ref.value)">Unesi</button></td>
-            </tr>
-          </tbody>
-        </table>
-  </div>
+  <h1 class="display-3">Korisnici</h1>
+  <hr>
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Id</th>
+        <th scope="col">Korisnicko ime</th>
+        <th scope="col">Bonus</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-light" *ngFor = "let emp of getEmpData">
+        <td>{{ emp.id_korisnika }}</td>
+        <td>{{ emp.korisnicko_ime }}</td>
+        <td><input type="text" value="{{emp.bonus}}" #ref class="form-control is-valid" id="inputValid" wfd-id="491" style="text-align: center;"></td>
+        <td><button class="btn btn-primary" (click) = "updateBonus(emp.id_korisnika ,ref.value)">Unesi</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
 </div>

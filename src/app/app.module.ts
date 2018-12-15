@@ -6,19 +6,24 @@ import { AppComponent } from './app.component';
 import { RacuniComponent } from './racuni/racuni.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BonusiComponent } from './bonusi/bonusi.component';
+import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
     AppComponent,
     RacuniComponent,
-    BonusiComponent
+    BonusiComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,49 @@
+<div class="container">
+ 
+    
+    <div class="row" *ngIf = "!login_bool">
+      <div class="col">
+       
+      </div>
+      <div class="col-6">
+        
+        <div class="jumbotron" wfd-id="121" style="text-align: center">
+          <h1 class="display-3">Login</h1>
+        <form [formGroup] = "registerForm" (ngSubmit) = "onSubmit()">
+          
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" formControlName = "username" class="form-control" [ngClass] = "{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf = "submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf = "f.username.errors.required">Username is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName = "password" class="form-control" [ngClass] = "{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf = "submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf = "f.password.errors.required">Password is required</div>
+            </div>
+          </div>
+
+          <div class="form-group" wfd-id="290">
+            <div class="custom-control custom-checkbox" wfd-id="293">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" wfd-id="482" formControlName = "remember">
+              <label class="custom-control-label" for="customCheck1" wfd-id="294">Remember</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [disabled] = "loading" class="btn btn-primary btn-lg">Login</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+      <div class="col">
+
+      </div>
+    </div>
+  </div>
+
